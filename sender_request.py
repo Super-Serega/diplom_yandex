@@ -1,16 +1,9 @@
 import configuration
 import requests
 import data
-
-
 # Создать новый заказ
 def post_new_orders(body):
-    url = configuration.URL_SERVICE+configuration.CREATED_ORDER
-    return requests.post(url, json=body, headers=data.headers)
-respouns = post_new_orders(data.order)
-
-
+    return requests.post(configuration.URL_SERVICE+configuration.CREATED_ORDER, json=body, headers=data.headers)
 # Получить заказ по номеру трэка
 def get_take_order(track):
-    url = configuration.URL_SERVICE+configuration.TAKE_ORDER+str(track)
-    return requests.get(url)
+    return requests.get(configuration.URL_SERVICE+configuration.TAKE_ORDER+str(track))
